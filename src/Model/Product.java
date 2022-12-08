@@ -42,17 +42,17 @@ public class Product implements Serializable, Comparable<Product> {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "producsName='" + producsName + '\'' +
-                ", producPrice=" + producPrice +
-                ", amount=" + amount +
+        return "Sản phẩm{" +
+                "Tên sản phẩm='" + producsName + '\'' +
+                ", Giá sản phẩm=" + producPrice +
+                ", số lượng hiện có =" + amount +
                 '}';
     }
 
     public String thongtindonhang() {
         return
                 "Sản phẩm:" + producsName + '\'' +
-                ", giá" + producPrice
+                ", Giá " + producPrice
                 ;
     }
 

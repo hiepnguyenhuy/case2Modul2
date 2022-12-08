@@ -4,7 +4,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadAndWrite<E> {
+public class ReadAndWrite<E> implements Serializable{
+
 public void write(ArrayList<E> list, String url) {
     File file = new File(url);
     try {

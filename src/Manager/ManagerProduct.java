@@ -3,21 +3,20 @@ package Manager;
 import Model.Product;
 import io.ReadAndWrite;
 
-import java.lang.reflect.Parameter;
+
 import java.util.ArrayList;
+
 
 public class ManagerProduct {
     static ArrayList<Product> products = new ArrayList<>();
-    ReadAndWrite<Product> rawProduct = new ReadAndWrite<>();
+    static ReadAndWrite<Product> rawProduct = new ReadAndWrite<>();
 
     {
         products = rawProduct.read("Products.txt");
     }
 
-    public void showProducts() {
-        for (Product pr : products) {
-            System.out.println(pr.toString());
-        }
+    public ArrayList<Product> showProducts() {
+        return products;
     }
 
     public int findProduct(String productName) {
@@ -51,7 +50,7 @@ public class ManagerProduct {
 
     public void deleteProduct(int index) {
         products.remove(index);
-
+        rawProduct.write(products, "Products.txt");
     }
 
     public void sortByPrice() {
@@ -74,17 +73,16 @@ public class ManagerProduct {
         }
     }
 
-    public void tonKho(String prdName) {
-        int count = 0;
-        for (int i = 0; i < ManagerItem.items.size(); i++) {
-            if (ManagerItem.items.get(i).getProduct().getProducsName().equals(prdName)) {
-                count = products.get(i).getAmount() - ManagerItem.items.get(i).getNumberOfSelected();
-                products.get(i).setAmount(count);
+    public ArrayList<Product> find(String name) {
+        ArrayList<Product> list = new ArrayList<>();
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getProducsName().toLowerCase().contains(name.toLowerCase())) {
+                list.add(products.get(i));
             }
         }
-        System.out.println(count);
-
+        return list;
     }
+
 
 
 }

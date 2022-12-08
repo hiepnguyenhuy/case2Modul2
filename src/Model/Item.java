@@ -3,10 +3,9 @@ package Model;
 import java.io.Serializable;
 
 public class Item implements Serializable  {
-
     private User user;
-    private Product product;
-    private int numberOfSelected;
+    private Product product;//ArrayList, amount -> so luong can mua
+    private int numberOfSelected;//xoa
 
 
     public Item() {
@@ -58,12 +57,19 @@ public class Item implements Serializable  {
     }
 
 
-    public String coTien() {
-        return "Quý khách " +
+    public String bills() {
+        return "Khách hàng " +
                 user.showThongtinmuahang() +
-                ", Đã chọn = " + product.thongtindonhang() +
-                ", Số lượng sản phẩm = " + numberOfSelected +
-                ", Số tiền = " + tongTien() ;
+                ", Đã chọn : " + product.thongtindonhang() +
+                ", Số lượng sản phẩm : " + numberOfSelected +
+                ", Số tiền : " + tongTien() ;
+    }
+    public String item() {
+        return "Quý khách " +
+//                user.showThongtinmuahang() +
+                ", Đã chọn : " + product.thongtindonhang() +
+                ", Số lượng sản phẩm : " + numberOfSelected +
+                ", Số tiền : " + tongTien() ;
     }
 
 

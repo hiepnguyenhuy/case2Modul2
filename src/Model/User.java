@@ -1,6 +1,7 @@
 package Model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class User implements Serializable {
     private String userName;
@@ -9,6 +10,7 @@ public class User implements Serializable {
     private String fullName;
     private int phoneNumber;
     private String address;
+
 
     public User() {
     }
@@ -20,6 +22,8 @@ public class User implements Serializable {
         this.phoneNumber = phoneNumber;
         this.address = address;
     }
+
+
 
     public String getUserName() {
         return userName;
@@ -74,11 +78,8 @@ public class User implements Serializable {
 
     public String showThongtinmuahang() {
         return
-                 userName + '\'' +
-
-                ", Họ và tên='" + fullName + '\''
-
-
+                userName + '\'' +
+                        ", Họ và tên='" + fullName + '\''
                 ;
     }
 }
